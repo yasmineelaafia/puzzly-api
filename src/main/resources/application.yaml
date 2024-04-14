@@ -1,0 +1,43 @@
+#     Puzzly - A puzzle game project
+# 
+#     (C) 2024 Yasmine EL AAFIA <elaafiayasmine@gmail.com>
+#    
+#     This program is free software: you can redistribute it and/or modify
+#     it under the terms of the GNU General Public License as published by
+#     the Free Software Foundation, either version 3 of the License, or
+#     (at your option) any later version.
+#    
+#     Puzzly is distributed in the hope that it will be useful,
+#     but WITHOUT ANY WARRANTY; without even the implied warranty of
+#     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#     GNU General Public License for more details.
+#    
+#     You should have received a copy of the GNU General Public License
+#     along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/puzzly?createDatabaseIfNotExist=true
+    username: root
+    password: passroot
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    #show-sql: true
+  session:
+    jdbc:
+      initialize-schema: always
+      schema: classpath:org/springframework/session/jdbc/schema-@@platform@@.sql
+      table-name: SPRING_SESSION
+server:
+  servlet:
+    session:
+      cookie:
+        http-only: true
+      timeout: 20m
+server-host: "10.188.41.188"
+niryo-ip: "10.188.41.188"
+jwt:
+  access-token-cookie-name: authToken
+  jwt-secret: abababababababababababababababababababababababababababababababab
+  jwt-expiration-ms: 60000
